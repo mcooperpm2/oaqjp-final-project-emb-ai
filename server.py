@@ -16,6 +16,10 @@ def emotion_detector_route():
     # Pass user text to emotion detector function
     response = emotion_detector(text_to_analyze)
 
+    # Check if dominant emotion is None for blank input
+    if response['dominant_emotion'] is None:
+        return "Invalid text! Please try again!"
+
     # Return formatted response to customer
     return (
         "For the given statement, the system response is "
